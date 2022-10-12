@@ -22,13 +22,20 @@
     };
     /*END*/
 
+    /*비동기 대기 함수*/
+    function sleep(sec) {
+        return new Promise(resolve => setTimeout(resolve, sec * 1000));
+    }
+    /*END*/
 
-    function click_next() {
+
+    async function click_next() {
         var nowTime = new Date().getTime();
         var gapTime = parseInt((nowTime - prevTime) / 1000);
         console.log("Now_gapTime:" + gapTime);
         console.log("Complete_gapTime:" + Math.floor(duration));
         if (gapTime >= Math.floor(duration)) {
+            await sleep(3);		//데이터 전송까지 잠시 대기
             let event = new Event("mousedown");
             this.nextPageBtn.dispatchEvent(event);
         }
