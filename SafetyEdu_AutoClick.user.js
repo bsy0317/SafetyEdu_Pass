@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  연구실 안전교육 자동클릭
 // @author       BaeSeoyeon(bsy0317)
-// @match        http://www.safetyedu.org/Contents/IMGT2019/*
+// @match        http://www.safetyedu.org/Contents/IMGT*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=safetyedu.org
 // @grant        none
 // ==/UserScript==
