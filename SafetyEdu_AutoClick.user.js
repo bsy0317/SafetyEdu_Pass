@@ -9,6 +9,7 @@
 // @grant        none
 // ==/UserScript==
 (function() {
+    var quizOk = false;
     /*Confrim, Alert 함수의 반환값이 항상 true -> 자동확인*/
     var realConfirm = window.confirm;
     var realAlert = window.alert;
@@ -28,6 +29,25 @@
     }
     /*END*/
 
+    /*퀴즈 선택 폼*/
+    async function check_quiz(){
+        var isQuiz = chapterInfo[this.nowPageNum-1].script[0].indexOf('퀴즈') == -1 ? false:true;
+        if(isQuiz && !quizOk){
+            var quizAll = document.querySelectorAll(".quiz");
+            totalQCnt = quizAll.length; // 전체 문항수
+            for (var i=0; i<quizAll.length; i++) {
+                initQuiz(quizAll[i]);
+                var quizStartBtn = document.querySelector(".quizStartBtn");
+                quizStartBtn.dispatchEvent(new Event("click"));
+                this.checkValue = document.querySelectorAll('div.quiz')[0].attributes[1].value;
+                document.querySelectorAll('.correctBtn')[0].dispatchEvent(new Event("click"));
+                document.querySelectorAll('.nextQuizBtn')[0].dispatchEvent(new Event("click"));
+            }
+            quizOk = isQuiz;
+            await sleep(10);		//데이터 전송까지 잠시 대기
+        }
+    }
+    /*END*/
 
     async function click_next() {
         var nowTime = new Date().getTime();
@@ -42,6 +62,7 @@
     }
 
     setInterval(function timeout() {
+        check_quiz();
         click_next();
     }, 200);
 })();
