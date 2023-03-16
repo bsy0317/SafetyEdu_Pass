@@ -52,14 +52,11 @@
     /*END*/
 
     async function click_next() {
-        var nowTime = new Date().getTime();
-        var pTime = document.querySelector("#footer > div > div.timeDiv > div.dTime").innerText.split(':');
-        var prevTime = new Date().setHours(pTime[0]);
-        prevTime = new Date(prevTime).setMinutes(pTime[1]);
-        var gapTime = parseInt((nowTime - prevTime) / 1000);
-        console.log("Now_gapTime:" + gapTime);
-        console.log("Complete_gapTime:" + Math.floor(duration));
-        if (gapTime >= Math.floor(duration)) {
+        var nowTime = document.querySelector("#footer > div > div.timeDiv > div.cTime").innerText;
+        var pTime = document.querySelector("#footer > div > div.timeDiv > div.dTime").innerText;
+        console.log("Now_Time:" + nowTime);
+        console.log("Complete_Time:" + pTime);
+        if (nowTime == pTime) {
             await sleep(3);		//데이터 전송까지 잠시 대기
             let event = new Event("mousedown");
             this.nextPageBtn.dispatchEvent(event);
@@ -69,5 +66,5 @@
     setInterval(function timeout() {
         check_quiz();
         click_next();
-    }, 200);
+    }, 1000);
 })();
