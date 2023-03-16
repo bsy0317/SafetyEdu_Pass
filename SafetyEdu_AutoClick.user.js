@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         SafetyEdu_AutoClick
 // @namespace    http://www.safetyedu.org/
-// @version      0.1
+// @version      1.0
 // @description  연구실 안전교육 자동클릭
-// @author       BaeSeoyeon(bsy0317)
-// @match        http://www.safetyedu.org/Contents/IMGT*
+// @author       배서연(bsy0317)
+// @match        *://safety.kw.ac.kr/Contents/IMGT*
+// @match        *://safety.hs.ac.kr/Contents/IMGT*
+// @match        *://www.safetyedu.org/Contents/IMGT*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=safetyedu.org
 // @grant        none
 // ==/UserScript==
@@ -51,6 +53,9 @@
 
     async function click_next() {
         var nowTime = new Date().getTime();
+        var pTime = document.querySelector("#footer > div > div.timeDiv > div.dTime").innerText.split(':');
+        var prevTime = new Date().setHours(pTime[0]);
+        prevTime = new Date(prevTime).setMinutes(pTime[1]);
         var gapTime = parseInt((nowTime - prevTime) / 1000);
         console.log("Now_gapTime:" + gapTime);
         console.log("Complete_gapTime:" + Math.floor(duration));
