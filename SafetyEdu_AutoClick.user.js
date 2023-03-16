@@ -6,7 +6,7 @@
 // @author       배서연(bsy0317)
 // @match        *://safety.kw.ac.kr/Contents/IMGT*
 // @match        *://safety.hs.ac.kr/Contents/IMGT*
-// @match        *://www.safetyedu.org/Contents/IMGT*
+// @match        *://*.safetyedu.org/Contents/IMGT*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=safetyedu.org
 // @grant        none
 // ==/UserScript==
