@@ -14,6 +14,7 @@
 
 2. 크롬 확장프로그램 설치 (크롬 브라우저에서 테스트 되었습니다)
    - https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+   - https://chrome.google.com/webstore/detail/open-link-in-same-tab-pop/jmphljmgnagblkombahigniilhnbadca
 
 3. Tampermonkey 대시보드로 이동
    - 크롬 브라우저 상단에 Tampermonkey 아이콘을 클릭 후 "대시보드" 클릭<br />
@@ -27,6 +28,8 @@
 
 5. 안전교육 사이트에 접속하여 수강합니다.
    - http://www.safetyedu.org/Edu/OnLineEdu
+   
+6. 수강을 모두 마치면 설치한 확장프로그램을 삭제합니다.
 
 ## 👩‍🔧 문제가 있나요?
 - 스크립트에 오류가 있다면 아래 메일로 알려주세요!  
